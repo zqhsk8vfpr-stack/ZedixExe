@@ -183,8 +183,9 @@ CamlockPredictionSection:Textbox({
     Name = "Prediction X",
     Flag = "PredictionX",
     Default = "0",
-    Numeric = true,
-    Finished = true
+    Numeric = true,      -- allows only numbers
+    Finished = true,     -- saves value when you press Enter or click away
+    Callback = function(v) print("PredictionX set to:", v) end
 })
 
 CamlockPredictionSection:Label("Prediction Y")
@@ -193,7 +194,8 @@ CamlockPredictionSection:Textbox({
     Flag = "PredictionY",
     Default = "0",
     Numeric = true,
-    Finished = true
+    Finished = true,
+    Callback = function(v) print("PredictionY set to:", v) end
 })
 
 CamlockPredictionSection:Label("Prediction Z")
@@ -202,7 +204,8 @@ CamlockPredictionSection:Textbox({
     Flag = "PredictionZ",
     Default = "0",
     Numeric = true,
-    Finished = true
+    Finished = true,
+    Callback = function(v) print("PredictionZ set to:", v) end
 })
 
 CamlockPredictionSection:Toggle({
@@ -216,8 +219,7 @@ CamlockPredictionSection:Dropdown({
     Flag = "AutoPredMethod",
     Default = "Default",
     Items = { "Default", "Advanced" }
- })
-
+})
 -- Silent Aim section
 local SilentAimSection = MainPage:Section({ Name = "Silent Aim", Side = 2 })
 
