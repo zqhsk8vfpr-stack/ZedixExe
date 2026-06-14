@@ -9,7 +9,6 @@ local Window = Library:Window({
 -- Pages
 local MainPage = Window:Page({ Name = "Main", Icon = "131145598162617", Columns = 2 })
 local MiscPage = Window:Page({ Name = "Miscellaneous", Icon = "131145598162617", Columns = 2 })
-
 local SettingsPage = Library:CreateSettingsPage(Window)
 
 -- ========================= MAIN PAGE - LEFT COLUMN =========================
@@ -178,34 +177,35 @@ CamlockPredictionSection:Dropdown({
     Items = { "Velocity", "Regular", "Linear", "Rot", "Angular", "Advanced" }
 })
 
+-- REPLACED TEXTSBOXES WITH SLIDERS FOR PREDICTION X, Y, Z
 CamlockPredictionSection:Label("Prediction X")
-CamlockPredictionSection:Textbox({
+CamlockPredictionSection:Slider({
     Name = "Prediction X",
     Flag = "PredictionX",
-    Default = "0",
-    Numeric = true,      -- allows only numbers
-    Finished = true,     -- saves value when you press Enter or click away
-    Callback = function(v) print("PredictionX set to:", v) end
+    Default = 0.1,
+    Min = 0,
+    Max = 1,
+    Decimals = 3
 })
 
 CamlockPredictionSection:Label("Prediction Y")
-CamlockPredictionSection:Textbox({
+CamlockPredictionSection:Slider({
     Name = "Prediction Y",
     Flag = "PredictionY",
-    Default = "0",
-    Numeric = true,
-    Finished = true,
-    Callback = function(v) print("PredictionY set to:", v) end
+    Default = 0.1,
+    Min = 0,
+    Max = 1,
+    Decimals = 3
 })
 
 CamlockPredictionSection:Label("Prediction Z")
-CamlockPredictionSection:Textbox({
+CamlockPredictionSection:Slider({
     Name = "Prediction Z",
     Flag = "PredictionZ",
-    Default = "0",
-    Numeric = true,
-    Finished = true,
-    Callback = function(v) print("PredictionZ set to:", v) end
+    Default = 0.1,
+    Min = 0,
+    Max = 1,
+    Decimals = 3
 })
 
 CamlockPredictionSection:Toggle({
@@ -220,6 +220,7 @@ CamlockPredictionSection:Dropdown({
     Default = "Default",
     Items = { "Default", "Advanced" }
 })
+
 -- Silent Aim section
 local SilentAimSection = MainPage:Section({ Name = "Silent Aim", Side = 2 })
 
