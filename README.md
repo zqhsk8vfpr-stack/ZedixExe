@@ -3,15 +3,16 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/zqhsk
 local Window = Library:Window({
     Name = "Zedix",
     SubTitle = "V1.0",
-    Owner = "Luhzyrus"
+    TimeRemaining = "Infinity"
 })
 
 -- Pages
 local MainPage = Window:Page({ Name = "Main", Icon = "131145598162617", Columns = 2 })
 local MiscPage = Window:Page({ Name = "Miscellaneous", Icon = "131145598162617", Columns = 2 })
+
 local SettingsPage = Library:CreateSettingsPage(Window)
 
--- MAIN PAGE
+-- MAIN PAGE 
 -- Camlock section
 local CamlockSection = MainPage:Section({ Name = "Camlock", Side = 1 })
 
@@ -177,35 +178,31 @@ CamlockPredictionSection:Dropdown({
     Items = { "Velocity", "Regular", "Linear", "Rot", "Angular", "Advanced" }
 })
 
--- REPLACED TEXTSBOXES WITH SLIDERS FOR PREDICTION X, Y, Z
 CamlockPredictionSection:Label("Prediction X")
-CamlockPredictionSection:Slider({
+CamlockPredictionSection:Textbox({
     Name = "Prediction X",
     Flag = "PredictionX",
-    Default = 0.1,
-    Min = 0,
-    Max = 1,
-    Decimals = 3
+    Default = "0",
+    Numeric = true,
+    Finished = true
 })
 
 CamlockPredictionSection:Label("Prediction Y")
-CamlockPredictionSection:Slider({
+CamlockPredictionSection:Textbox({
     Name = "Prediction Y",
     Flag = "PredictionY",
-    Default = 0.1,
-    Min = 0,
-    Max = 1,
-    Decimals = 3
+    Default = "0",
+    Numeric = true,
+    Finished = true
 })
 
 CamlockPredictionSection:Label("Prediction Z")
-CamlockPredictionSection:Slider({
+CamlockPredictionSection:Textbox({
     Name = "Prediction Z",
     Flag = "PredictionZ",
-    Default = 0.1,
-    Min = 0,
-    Max = 1,
-    Decimals = 3
+    Default = "0",
+    Numeric = true,
+    Finished = true
 })
 
 CamlockPredictionSection:Toggle({
@@ -219,7 +216,7 @@ CamlockPredictionSection:Dropdown({
     Flag = "AutoPredMethod",
     Default = "Default",
     Items = { "Default", "Advanced" }
-})
+ })
 
 -- Silent Aim section
 local SilentAimSection = MainPage:Section({ Name = "Silent Aim", Side = 2 })
@@ -241,16 +238,7 @@ SilentAimSection:Dropdown({
     Flag = "TargetMode",
     Default = "FOV",
     Items = { "FOV", "Target" }
-})
 
-SilentAimSection:Slider({
-    Name = "Hit Chance %",
-    Flag = "HitChance",
-    Default = 100,
-    Min = 0,
-    Max = 100,
-    Decimals = 0,
-    Suffix = "%"
 })
 
 SilentAimSection:Dropdown({
@@ -271,9 +259,10 @@ SilentAimSection:Toggle({
     Name = "Anti Curve",
     Flag = "AntiCurve",
     Default = false
+
 })
 
-SilentAimSection:Slider({
+SilentAimSection:Textbox({
     Name = "Max Angle",
     Flag = "MaxAngle",
     Default = 90,
@@ -283,7 +272,18 @@ SilentAimSection:Slider({
     Suffix = "°"
 })
 
--- Silent Aim Prediction section (separate)
+SilentAimSection:Label("Hit Chance")
+SilentAimSection:Textbox({
+    Name = "Hit Chance ",
+    Flag = "HitChance",
+    Default = 90,
+    Min = 0,
+    Max = 360,
+    Decimals = 1,
+    Suffix = "%"
+})
+
+-- Silent Aim Prediction section
 local SilentAimPredictionSection = MainPage:Section({ Name = "Silent Aim Prediction", Side = 2 })
 
 SilentAimPredictionSection:Toggle({
