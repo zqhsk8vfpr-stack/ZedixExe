@@ -1,4 +1,4 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/sametexe001/sametlibs/refs/heads/main/lds13/Library.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/zqhsk8vfpr-stack/zedixLol/main/zedix%20ui"))()
 
 local Window = Library:Window({
     Name = "Zedix",
