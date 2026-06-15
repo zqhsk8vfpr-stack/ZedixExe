@@ -11,7 +11,7 @@ local MainPage = Window:Page({ Name = "Main", Icon = "131145598162617", Columns 
 local MiscPage = Window:Page({ Name = "Miscellaneous", Icon = "131145598162617", Columns = 2 })
 local SettingsPage = Library:CreateSettingsPage(Window)
 
--- ========================= MAIN PAGE - LEFT COLUMN =========================
+-- MAIN PAGE
 -- Camlock section
 local CamlockSection = MainPage:Section({ Name = "Camlock", Side = 1 })
 
